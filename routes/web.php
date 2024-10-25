@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-
+//the public route
 Route::get('/public',function (){
     broadcast(new PublicEvent(User::find(1)));
 
@@ -31,8 +31,10 @@ Route::get('/public',function (){
 });
 
 
+//the private route
 Route::get('/private',function (){
     broadcast(new PrivateEvent(User::find(1)));
     return "the private event has been fired";
 });         
+
 
